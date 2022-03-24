@@ -1,3 +1,19 @@
 <h1>Hallo Board</h1>
 
-<!-- <form action="" method="POST"></form> -->
+
+
+<script>
+    async function sendMessage() {
+
+        await fetch('/tasks/', {
+            method: 'POST',
+        });
+
+        console.log('Success!!!');
+    }
+</script>
+
+<form method="POST">
+    {% csrf_token %}
+    <button click="sendMessage()">Add tabel Field</button>
+</form>
