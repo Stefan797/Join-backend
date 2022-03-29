@@ -21,7 +21,7 @@ CATEGORY_CHOICES = (
 
 class Tasks(models.Model):
     text = models.CharField(max_length=500) 
-    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     created_at = models.DateField(default=date.today)
     color = models.CharField(max_length=500)
     discription = models.CharField(max_length=500)
