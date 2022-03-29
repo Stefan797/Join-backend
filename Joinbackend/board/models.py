@@ -7,6 +7,19 @@ from datetime import date
 
 # Create your models here.
 
+
+
+JAN = "JANUARY"
+FEB = "FEBRUARY"
+MAR = "MAR"
+
+MONTH_CHOICES = (
+    (JAN, "January"),
+    (FEB, "February"),
+    (MAR, "March"),
+)
+
+
 class Tasks(models.Model):
     text = models.CharField(max_length=500) 
     # category = ArrayField(('', 'today', 'progress', 'done'))
@@ -14,3 +27,5 @@ class Tasks(models.Model):
     created_at = models.DateField(default=date.today)
     color = models.CharField(max_length=500)
     discription = models.CharField(max_length=500)
+    month = models.CharField(max_length=9,choices=MONTH_CHOICES,default="JANUARY")
+    
