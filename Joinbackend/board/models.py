@@ -7,25 +7,23 @@ from datetime import date
 
 # Create your models here.
 
+Category_one = "Todo"
+Category_two = "Today"
+Category_three = "In progress"
+Category_four = "Done"
 
-
-JAN = "JANUARY"
-FEB = "FEBRUARY"
-MAR = "MAR"
-
-MONTH_CHOICES = (
-    (JAN, "January"),
-    (FEB, "February"),
-    (MAR, "March"),
+CATEGORY_CHOICES = (
+    (Category_one, "Todo"),
+    (Category_two, "Today"),
+    (Category_three, "In progress"),
+    (Category_four, "Done"),
 )
-
 
 class Tasks(models.Model):
     text = models.CharField(max_length=500) 
-    # category = ArrayField(('', 'today', 'progress', 'done'))
     # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     created_at = models.DateField(default=date.today)
     color = models.CharField(max_length=500)
     discription = models.CharField(max_length=500)
-    month = models.CharField(max_length=9,choices=MONTH_CHOICES,default="JANUARY")
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default="Todo")
     
