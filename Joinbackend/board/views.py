@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.core import serializers
 from board.models import Tasks
+import json 
 
 # Create your views here.
 
@@ -40,16 +41,19 @@ from board.models import Tasks
 def index(request):
     return render(request, 'board/index.html')
 
-def jsonboard(request):
-    if request.method == 'POST':
-        board_message = Tasks.objects.get(id=2)
-        serialized_obj = serializers.serialize('json', [ board_message, ])
-        return JsonResponse(serialized_obj[1:-1], safe=False)
-
-def jsonabc(request):
+def jsononeelement(request, id):
     if request.method == 'GET':
-        board_message = Tasks.objects.get(id=3)
+        board_message = Tasks.objects.get(id=id)
+        # board_message = Tasks.objects.all()
+        #board_msg_json = json.loads(board_message) 
         serialized_obj = serializers.serialize('json', [ board_message, ])
         return JsonResponse(serialized_obj[1:-1], safe=False)
+    if request.method == 'POST':
+        new_task = Tasks.objects.create(text=request.POST['textvalue'], author=request.user, created_at=request.POST['datevalue'], color=request.POST['colorvalue'], discription=request.POST['discriptionvalue'], category=request.POST['value'])
 
+def jsonlist(request):
+    if request.method == 'GET':
+        fulljson = Tasks.objects.all()
+        serialized_obj = serializers.serialize('json', [ fulljson, ])
+        return JsonResponse(serialized_obj[1:-1], safe=False)
 

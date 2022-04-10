@@ -14,6 +14,10 @@
 
         console.log('Success!!!');
     }
+
+    function getdate() {
+        moment(date).format('YYYY-MM-DD HH:mm');
+    }
 </script> 
 
 <form onsubmit="sendMessage(); return false;" method="post">
@@ -24,3 +28,36 @@
 <div id="messageContainer">
 
 </div>
+
+<style>
+    .newtasktestbox {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    .newtask {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>
+<div class="newtasktestbox">
+    <form class="newtask" action="" method="post">
+        {% csrf_token %}
+        Text<input type="text" name="textvalue">
+        Datum<input onsubmit="getdate();" id="date" type="number" name="datevalue">   
+        Farbe<input type="text" name="colorvalue">
+        Beschreibung<input type="text" name="discriptionvalue">
+        auswahl
+        <select name="category" id="category-field">
+            <option value="Todo">Todo</option>
+            <option value="Today">Today</option>
+            <option value="In progress">In progress</option>
+            <option value="Done">Done</option>
+        </select>
+        <button>Erstellen</button>
+    </form>
+</div>
+
+

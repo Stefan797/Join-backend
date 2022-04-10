@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from board.views import index, jsonboard, jsonabc
+from board.views import index, jsononeelement, jsonlist
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/', index),
-    path('api/tasks', jsonboard),
-    path('api/aufgabe', jsonabc),
+    path('api/task/<int:id>', jsononeelement), #name='jsonabc' 
+    path('api/fulllist', jsonlist),
 ]
