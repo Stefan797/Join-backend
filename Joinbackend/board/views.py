@@ -54,6 +54,8 @@ def jsononeelement(request, id):
 def jsonlist(request):
     if request.method == 'GET':
         fulljson = Tasks.objects.all()
-        serialized_obj = serializers.serialize('json', [ fulljson, ])
+        # print('das hier ist', fulljson)
+        serialized_obj = serializers.serialize('json', fulljson,)
+        # print(serialized_obj)
         return JsonResponse(serialized_obj[1:-1], safe=False)
 
