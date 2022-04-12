@@ -1,5 +1,5 @@
 from django.dispatch import receiver
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
@@ -50,7 +50,8 @@ def jsononeelement(request, id):
         # board_message = Tasks.objects.all()
         #board_msg_json = json.loads(board_message) 
         serialized_obj = serializers.serialize('json', [ board_message, ])
-        return JsonResponse(serialized_obj[1:-1], safe=False)
+        return HttpResponse(serialized_obj[1:-1], content_type='application/json')
+        # return JsonResponse(serialized_obj[1:-1], safe=False)
     
 
 def jsonlist(request):
@@ -59,5 +60,6 @@ def jsonlist(request):
         # print('das hier ist', fulljson)
         serialized_obj = serializers.serialize('json', fulljson,)
         # print(serialized_obj)
-        return JsonResponse(serialized_obj[1:-1], safe=False)
+        return HttpResponse(serialized_obj[1:-1], content_type='application/json')
+        #return JsonResponse(serialized_obj[1:-1], safe=False)
 
