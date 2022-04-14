@@ -62,6 +62,6 @@ def jsonlist(request):
         # print('das hier ist', fulljson)
         serialized_obj = serializers.serialize('json', fulljson,)
         # print(serialized_obj)
-        return HttpResponse(serialized_obj[1:-1], content_type='application/json')
+        return HttpResponse(serialized_obj, content_type='application/json')
         #return JsonResponse(serialized_obj[1:-1], safe=False)
 

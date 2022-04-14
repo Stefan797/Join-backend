@@ -21,6 +21,8 @@ from board.views import index, jsononeelement, jsonlist
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/', index),
+    # path('login/', loginfunction), # POST Request /login mit {password: '123456', email: 'junus@mailinator.com} => {csrfmiddlewaretoken: 'FDeiWqooubQDgttioHIg7fWb0FaW2VTmWUAfkFrc9Onh9k7UjjuKylT4YsFjEWPT'}
+    # path('register/', registerfunction),
     path('api/task/<int:id>', jsononeelement), #name='jsonabc' 
-    path('api/fulllist', jsonlist),
+    path('api/tasks', jsonlist),
 ]
