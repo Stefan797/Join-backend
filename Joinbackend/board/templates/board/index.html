@@ -41,6 +41,19 @@
         align-items: center;
         flex-direction: column;
     }
+    .loginfenster {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+
+    .registriungsfenster {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
 </style>
 <div class="newtasktestbox">
     <form class="newtask" action="" method="post">
@@ -59,5 +72,16 @@
         <button>Erstellen</button>
     </form>
 </div>
+
+<div class="loginfenster">
+    {% csrf_token %}
+    <form class="newtask" action="" method="post">
+        Email<input type="email" name="emailvalue">
+        Password<input type="password" name="password">
+        <button>Erstellen</button>
+    </form>
+</div>
+
+
 
 

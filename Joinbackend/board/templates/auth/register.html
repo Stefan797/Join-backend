@@ -1,0 +1,38 @@
+<style>
+    .newtasktestbox {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    .newtask {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .loginfenster {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+
+    .registriungsfenster {
+        height: 400px;
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+</style>
+
+<div class="registriungsfenster">
+    
+    <form class="newtask" action="" method="post">
+        {% csrf_token %}
+        Username<input type="text" name="username">
+        Email<input type="email" name="email">
+        Password<input type="password" name="password">
+        Password wiederholen<input type="password" name="repeated_password">
+        <button>Erstellen</button>
+    </form>
+</div>

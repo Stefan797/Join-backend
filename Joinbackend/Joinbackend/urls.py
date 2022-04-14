@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from board.views import index, jsononeelement, jsonlist
+from board.views import index, jsononeelement, jsonlist, register, login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('board/', index),
-    # path('login/', loginfunction), # POST Request /login mit {password: '123456', email: 'junus@mailinator.com} => {csrfmiddlewaretoken: 'FDeiWqooubQDgttioHIg7fWb0FaW2VTmWUAfkFrc9Onh9k7UjjuKylT4YsFjEWPT'}
-    # path('register/', registerfunction),
+    path('login/', login_view), # POST Request /login mit {password: '123456', username: 'Flo''junus@mailinator.com} => {csrfmiddlewaretoken: 'FDeiWqooubQDgttioHIg7fWb0FaW2VTmWUAfkFrc9Onh9k7UjjuKylT4YsFjEWPT'}
+    path('register/', register),
     path('api/task/<int:id>', jsononeelement), #name='jsonabc' 
     path('api/tasks', jsonlist),
 ]
