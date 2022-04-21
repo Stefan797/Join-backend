@@ -1,4 +1,5 @@
-"""Joinbackend URL Configuration
+"""
+Joinbackend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -13,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 
@@ -23,6 +25,6 @@ urlpatterns = [
     path('board/', index),
     path('login/', login_view), # POST Request /login mit {password: '123456', username: 'Flo''junus@mailinator.com} => {csrfmiddlewaretoken: 'FDeiWqooubQDgttioHIg7fWb0FaW2VTmWUAfkFrc9Onh9k7UjjuKylT4YsFjEWPT'}
     path('register/', register),
-    path('api/task/<int:id>', jsononeelement), #name='jsonabc' 
+    path('api/task/<int:id>', jsononeelement),
     path('api/tasks', jsonlist),
 ]
