@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -35,6 +36,12 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://kanbanboard12.herokuapp.com'
 ]
+
+# PROJECT_ROOT = os.path.abspath(os.path.dirname('static/'))
+# STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles/')
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT,'static/'),
+# )
 
 
 # Application definition

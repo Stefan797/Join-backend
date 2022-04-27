@@ -22,18 +22,15 @@ def login_view(request):
     """
     The login function matches the authentication to log in successfully.
     """ 
-    #redirect = request.GET.get('next')
     if request.method == 'POST':
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user:
             login(request, user)
             token = get_token(request)
-
-            print('request.GET.get(next)', request.GET.get('next'))
-            return HttpResponse(token)
+            serialized_obj = serializers.serialize('json', token,)
+            return HttpResponse(serialized_obj, content_type='application/json')
         else:
-            # return HttpResponseBadRequest('Falsche User daten')
-            return render(request, 'auth/login.html', {'wrongPassword': True})
+            return HttpResponseBadRequest('User name oder password ist falsch')
     return render(request, 'auth/login.html')
 
 #Registrirung eines neuen Accounts 
