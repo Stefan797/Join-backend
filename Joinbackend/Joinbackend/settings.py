@@ -37,12 +37,12 @@ CSRF_TRUSTED_ORIGINS = [
     'https://kanbanboard12.herokuapp.com'
 ]
 
-PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
-PROJECT_ROOT = os.path.abspath(os.path.dirname('static/'))
-STATIC_ROOT = os.path.join(PROJECT_DIR,'/static/')
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT,'static/'),
-)
+# PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+# PROJECT_ROOT = os.path.abspath(os.path.dirname('static/'))
+# STATIC_ROOT = os.path.join(PROJECT_DIR,'/static/')
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT,'static/'),
+# )
 
 
 # Application definition
@@ -150,7 +150,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
