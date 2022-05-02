@@ -1,3 +1,4 @@
+# from pydoc import render_doc
 from django.dispatch import receiver
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.contrib.auth.models import User
@@ -81,4 +82,7 @@ def jsonlist(request):
         # print(serialized_obj)
         return HttpResponse(serialized_obj, content_type='application/json')
         #return JsonResponse(serialized_obj[1:-1], safe=False)
+
+# def view_docs(request):
+#     return render(request, 'docs/_build/html/index.html')
 

@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-92=1gmszl*lj*+i$r_!ooehsrl+0lykw+5g7@b#@@bvdq(7&d_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 #DEBUG = True wenn man damit arbeitet, False wenn man es hostet
 
 ALLOWED_HOSTS = [
@@ -39,7 +39,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.dirname('static/'))
-STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles/')
+STATIC_ROOT = os.path.join(PROJECT_DIR,'/static/')
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT,'static/'),
 )
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
