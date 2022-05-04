@@ -29,5 +29,4 @@ urlpatterns = [
     path('register/', register),
     path('api/task/<int:id>', jsononeelement),
     path('api/tasks', jsonlist),
-    # path('docs/', view_docs)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
