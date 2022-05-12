@@ -37,6 +37,10 @@ CSRF_TRUSTED_ORIGINS = [
     'https://kanbanboard12.herokuapp.com'
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:5501',
+]
+
 # PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 # PROJECT_ROOT = os.path.abspath(os.path.dirname('static/'))
 # STATIC_ROOT = os.path.join(PROJECT_DIR,'/static/')
@@ -55,10 +59,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'board',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.core import serializers
 from board.models import Tasks
 from django.middleware.csrf import get_token
+from django.views.decorators.csrf import csrf_exempt
 import json 
 
 # Create your views here.
@@ -19,16 +20,19 @@ import json
 #     if request.method == 'POST':
         
 #Login Funktion 
+@csrf_exempt
 def login_view(request):
     """
     The login function matches the authentication to log in successfully.
     """ 
+    print(request.method)
     if request.method == 'POST':
         user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
         if user:
             login(request, user)
             token = get_token(request)
             serialized_obj = serializers.serialize('json', token,)
+            print(serialized_obj)
             return HttpResponse(serialized_obj, content_type='application/json')
         else:
             return HttpResponseBadRequest('User name oder password ist falsch')
