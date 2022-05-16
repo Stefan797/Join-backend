@@ -31,9 +31,9 @@ def login_view(request):
         if user:
             login(request, user)
             token = get_token(request)
-            serialized_obj = serializers.serialize('json', token,)
-            print(serialized_obj)
-            return HttpResponse(serialized_obj, content_type='application/json')
+            print(token)
+            return JsonResponse({'token':token})
+            # return HttpResponse('{}', content_type='application/json')
         else:
             return HttpResponseBadRequest('User name oder password ist falsch')
     return render(request, 'auth/login.html')
