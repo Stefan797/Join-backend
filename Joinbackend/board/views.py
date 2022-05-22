@@ -20,7 +20,7 @@ import json
 #     if request.method == 'POST':
         
 #Login Funktion 
-@csrf_exempt
+@csrf_exempt 
 def login_view(request):
     """
     The login function matches the authentication to log in successfully.
