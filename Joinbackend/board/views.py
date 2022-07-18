@@ -35,7 +35,7 @@ def login_view(request):
             return JsonResponse({'token':token})
             # return HttpResponse('{}', content_type='application/json')
         else:
-            return HttpResponseBadRequest('User name oder password ist falsch')
+            return HttpResponseBadRequest('User name or password is wrong')
     return render(request, 'auth/login.html')
 
 #Registrirung eines neuen Accounts 
