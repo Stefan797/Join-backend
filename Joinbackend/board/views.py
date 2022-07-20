@@ -11,6 +11,7 @@ from board.models import Tasks
 from django.middleware.csrf import get_token
 from django.views.decorators.csrf import csrf_exempt
 import json 
+# from rest_framework.decorators import api_view
 
 # Create your views here.
 
@@ -38,7 +39,9 @@ def login_view(request):
             return HttpResponseBadRequest('User name or password is wrong')
     return render(request, 'auth/login.html')
 
-#Registrirung eines neuen Accounts 
+
+#Registrirung eines neuen Accounts
+# @api_view(['GET', 'POST']) 
 def register(request):
     """
     With the post method, new users can be added by providing such as username, email, password.

@@ -28,14 +28,15 @@ DEBUG = False
 #DEBUG = True wenn man damit arbeitet, False wenn man es hostet
 
 ALLOWED_HOSTS = [
-    '.herokuapp.com',
+    'joinbackend.pythonanywhere.com'
+    # '.herokuapp.com',
     'localhost',
     '127.0.0.1'
 ]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://kanbanboard12.herokuapp.com'
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://kanbanboard12.herokuapp.com'
+# ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:5501',
@@ -98,23 +99,23 @@ WSGI_APPLICATION = 'Joinbackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd49edn2pe75hi6',
-        'HOST': 'ec2-63-35-156-160.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
-        'USER': 'vfjqioufsmtgnl',
-        'PASSWORD': 'd656b86144f900d3d9bfb50ef35a8804327a072a12dd0f4425b3f05a4de55d5d',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd49edn2pe75hi6',
+#         'HOST': 'ec2-63-35-156-160.eu-west-1.compute.amazonaws.com',
+#         'PORT': '5432',
+#         'USER': 'vfjqioufsmtgnl',
+#         'PASSWORD': 'd656b86144f900d3d9bfb50ef35a8804327a072a12dd0f4425b3f05a4de55d5d',
+#     }
+# }
 
 # Könnte lösung sein ?
 # CSRF_TRUSTED_ORIGINS = [
